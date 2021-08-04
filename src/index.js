@@ -16,4 +16,4 @@ import App from './App';
 // // react applicaiton 은 오직 하나의 component 만을 렌더링 한다.
 // // 그리고, applicaiton 수 많은 component 들을 넣을 수 있다.
 
-ReactDOM.render(<App/>, document.getElementById('root')); // 
+ReactDOM.render(<App/>, document.getElementById('root'));
