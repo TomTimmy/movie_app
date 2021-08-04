@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Potato from './Potato';
 
 // ReactDOM.render(<App />, document.getElementById('root')); // <== 이건 HTML 이 아니다!!
 // // 위와 같은 것들을 Component 라고 한다! 
