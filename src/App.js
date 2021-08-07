@@ -1,35 +1,29 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
-// function App() {
-//   return (
-//     <div>
-//       {foodILike.map(x => (
-//         <Food name={x.name} picture={x.image} rating={x.rating} />
-//         ))} 
-//     </div> 
-//   );
-// }
-
-// function, 함수 컴포넌트인 App 을 class 컴포넌트로 바꿔보자.
-class App extends React.Component { // class 는 함수와 다르게, return 하지 않는다.
-  // class 는 render 한다. (엄밀히 말하면, React.Component 에 render 메서드가 있는 것이다. )
-  // react 는 "자동적으로" 나의 class 컴포넌트의 render 메서드를 실행한다! 자동으로!
-
-  // state 는 단지 object 이다!
+class App extends React.Component { 
   state = {
     count: 0
   };
 
-  render() { 
-    // state 를 사용하려면...
-    // return <h1>The number is {state}</h1> => 이러면 안된다! 이건 함수일때나 그런거고!!
-    // return <h1>The number is {this.state.count}</h1> // => 이렇게 써야한다...! 왜냐? 클래스! 이니까!
+  componentDidMount() { // 생성 완료!
+    console.log("component renderd!");
+  }
+
+  componentDidUpdate() { // 업데이트 완료!
+    console.log("I updated!");
+  }
+
+  componentWillUnmount() { // 죽음
+    console.log("Good bye..");
+  }
+
+  render() { // 생성 중..
+    console.log("I'm rendering");
 
     return (
       <div>
         <h1>The number is {this.state.count}</h1>
-        {/* this.add 는 클릭했을때 호출! this.add() 는 "즉시"호출을 의미한다! */}
         <button onClick={this.add}>Add</button> 
         <button onClick={this.minus}>Minus</button> 
       </div>
