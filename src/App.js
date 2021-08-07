@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // // Food 컴포넌트 생성!
 // function Food() {
@@ -70,23 +71,28 @@ import React from "react";
 const foodILike = [
   {
     name: "Kimchi",
-    image: "https://www.bgw.kr/wp-content/uploads/2019/12/%ED%8F%AC%EA%B8%B0%EA%B9%80%EC%B9%98-1200x1200.png"
+    image: "https://www.bgw.kr/wp-content/uploads/2019/12/%ED%8F%AC%EA%B8%B0%EA%B9%80%EC%B9%98-1200x1200.png",
+    rating: 5.2
   },
   {
     name: "Jeyook",
-    image: "https://imagescdn.gettyimagesbank.com/500/201811/a11209732.jpg"
+    image: "https://imagescdn.gettyimagesbank.com/500/201811/a11209732.jpg",
+    rating: 9.5
   },
   {
     name: "Doncatsu",
-    image: "https://mp-seoul-image-production-s3.mangoplate.com/428178/1727908_1610466129234_7890?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+    image: "https://mp-seoul-image-production-s3.mangoplate.com/428178/1727908_1610466129234_7890?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80",
+    rating: 9.9
   },
   {
     name: "Momil",
-    image: "http://gdimg.gmarket.co.kr/981631986/still/600?ver=0"
+    image: "http://gdimg.gmarket.co.kr/981631986/still/600?ver=0",
+    rating: 8.5
   },
   {
     name: "Samgyeopsal",
-    image: "https://images.chosun.com/resizer/LqiOo-kFtKiAUawSeNYkIGIisaQ=/464x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IZOXUQBP4QVT4ONUPAIDA6347M.jpg"
+    image: "https://images.chosun.com/resizer/LqiOo-kFtKiAUawSeNYkIGIisaQ=/464x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/IZOXUQBP4QVT4ONUPAIDA6347M.jpg",
+    rating: 9.7
   },
 ]
 
@@ -103,26 +109,45 @@ const foodILike = [
 //   );
 // }
 
-// 내친김에 이미지도 표출해보자.
-function Food({ name, picture }) {
+
+function Food({ name, picture, rating }) {
   return (
     <div>
       <h1>I like {name}</h1>
+      <h4>{rating}/10.0</h4>
       <img src={picture}/>
-    </div>
-
-  
+    </div>  
   );
+}
+
+// 에러잡을때 유용한 PropTypes (npm install p
+Food.propTypes = {
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
+  rating: PropTypes.string.isRequired, // Food 
 }
 
 function App() {
   return (
     <div>
       {foodILike.map(x => (
-        <Food name={x.name} picture={x.image} />
+        <Food name={x.name} picture={x.image} rating={x.rating} />
         ))} 
     </div> 
   );
 }
+
+// // 아래는 위와 정확히 같은 표현식이다. ( arrow 함수를 쓰냐 안 쓰냐 차이. )
+// function renderfood(x) {
+//   return <Food name={x.name} picture={x.image}/>
+// }
+
+// function App() {
+//   return (
+//     <div>
+//       {foodILike.map(renderfood)} 
+//     </div> 
+//   );
+// }
 
 export default App;
